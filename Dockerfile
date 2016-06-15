@@ -15,9 +15,9 @@ RUN apt-get install -y python-dev
 RUN mkdir -p /opt/{src,bin}
 WORKDIR /opt/src
 
-RUN git clone http://vtk.org/VTK.git
+RUN git clone https://gitlab.kitware.com/srikanthnagella/vtk.git
 WORKDIR /opt/src/VTK
-RUN git checkout v6.1.0
+RUN git checkout master
 RUN sed -i 's/\/\/#define\ GLX_GLXEXT_LEGACY/#define\ GLX_GLXEXT_LEGACY/g' Rendering/OpenGL/vtkXOpenGLRenderWindow.cxx
 
 RUN echo 'deb-src http://http.debian.net/debian jessie main' >> /etc/apt/sources.list
