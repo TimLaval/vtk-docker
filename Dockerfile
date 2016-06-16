@@ -11,6 +11,9 @@ RUN apt-get install -y subversion
 RUN apt-get install -y git
 RUN apt-get install -y ninja-build
 RUN apt-get install -y python-dev
+RUN apt-get install -y qt5-default
+RUN apt-get install -y python-pyqt5
+RUN apt-get install -y sip-dev
 
 RUN mkdir -p /opt/{src,bin}
 WORKDIR /opt/src
@@ -29,6 +32,7 @@ WORKDIR /opt/bin/VTK
 RUN cmake -G Ninja \
   -DCMAKE_BUILD_TYPE:STRING=Release \
   -DBUILD_TESTING:BOOL=OFF \
+  -DVTK_WRAP_PYTHON:BOOL=ON 
   ../../src/vtk
 RUN ninja
 RUN ninja install  
