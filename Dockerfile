@@ -16,7 +16,7 @@ RUN mkdir -p /opt/{src,bin}
 WORKDIR /opt/src
 
 RUN git clone https://gitlab.kitware.com/srikanthnagella/vtk.git
-WORKDIR /opt/src/VTK
+WORKDIR /opt/src/vtk
 RUN git checkout master
 RUN sed -i 's/\/\/#define\ GLX_GLXEXT_LEGACY/#define\ GLX_GLXEXT_LEGACY/g' Rendering/OpenGL/vtkXOpenGLRenderWindow.cxx
 
@@ -29,6 +29,6 @@ WORKDIR /opt/bin/VTK
 RUN cmake -G Ninja \
   -DCMAKE_BUILD_TYPE:STRING=Release \
   -DBUILD_TESTING:BOOL=OFF \
-  ../../src/VTK
+  ../../src/vtk
 RUN ninja
 RUN ninja install  
