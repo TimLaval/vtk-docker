@@ -32,7 +32,7 @@ WORKDIR /opt/bin/VTK
 RUN cmake -G Ninja \
   -DCMAKE_BUILD_TYPE:STRING=Release \
   -DBUILD_TESTING:BOOL=OFF \
-  -DVTK_WRAP_PYTHON:BOOL=ON 
+  -DVTK_WRAP_PYTHON:BOOL=ON \
   ../../src/vtk
 RUN ninja
 RUN ninja install  
