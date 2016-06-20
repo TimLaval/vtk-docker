@@ -35,4 +35,3 @@ RUN cmake -G Ninja \
   -DVTK_WRAP_PYTHON:BOOL=ON \
   ../../src/vtk
 RUN ninja
-RUN ninja install  
