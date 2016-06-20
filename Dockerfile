@@ -12,7 +12,10 @@ RUN apt-get install -y git
 RUN apt-get install -y ninja-build
 RUN apt-get install -y python-dev
 RUN apt-get install -y qt5-default
+RUN apt-get install -y libqt5x11extras5-dev
+RUN apt-get install -y qttools5-dev
 RUN apt-get install -y python-pyqt5
+RUN apt-get install -y pyqt5-dev
 RUN apt-get install -y sip-dev
 
 RUN mkdir -p /opt/{src,bin}
@@ -33,5 +36,9 @@ RUN cmake -G Ninja \
   -DCMAKE_BUILD_TYPE:STRING=Release \
   -DBUILD_TESTING:BOOL=OFF \
   -DVTK_WRAP_PYTHON:BOOL=ON \
+  -DVTK_WRAP_PYTHON_SIP:BOOL=ON \
+  -DVTK_Group_Qt:BOOL=ON \
+  -DVTK_QT_VERSION:STRING=5 \
+  -DSIP_PYQT_DIR=/usr/share/sip/PyQt5/ \
   ../../src/vtk
 RUN ninja
