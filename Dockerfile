@@ -10,11 +10,12 @@ RUN apt-get install -y cmake cmake-curses-gui
 RUN apt-get install -y subversion
 RUN apt-get install -y git
 RUN apt-get install -y ninja-build
-RUN apt-get install -y python-dev
+RUN apt-get install -y python3-dev
 RUN apt-get install -y qt5-default
 RUN apt-get install -y libqt5x11extras5-dev
 RUN apt-get install -y qttools5-dev
 RUN apt-get install -y python-pyqt5
+RUN apt-get install -y python3-sip
 RUN apt-get install -y python3-sip-dev
 RUN apt-get install -y pyqt5-dev
 
@@ -40,5 +41,6 @@ RUN cmake -G Ninja \
   -DVTK_Group_Qt:BOOL=ON \
   -DVTK_QT_VERSION:STRING=5 \
   -DSIP_PYQT_DIR=/usr/share/sip/PyQt5/ \
+  -DVTK_PYTHON_VERSION:STRING=3 \
   ../../src/vtk
 RUN ninja
