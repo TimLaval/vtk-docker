@@ -15,8 +15,8 @@ RUN apt-get install -y qt5-default
 RUN apt-get install -y libqt5x11extras5-dev
 RUN apt-get install -y qttools5-dev
 RUN apt-get install -y python-pyqt5
+RUN apt-get install -y python3-sip-dev
 RUN apt-get install -y pyqt5-dev
-RUN apt-get install -y sip-dev
 
 RUN mkdir -p /opt/{src,bin}
 WORKDIR /opt/src
